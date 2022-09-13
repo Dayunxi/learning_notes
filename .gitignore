@@ -1,0 +1,17 @@
+*.swp
+tags
+release/
+debug/
+backup/
+test/
+*.tar.bz2
+*.tar
+*.asm
+*.log
+*.o
+*.dat
+*.bak
+*.zip
+bak_*
+tmp*
+ignore/

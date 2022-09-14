@@ -75,12 +75,16 @@ pthread_spin_unlock(&lock);  // __atomic_store_n (lock, 0, __ATOMIC_RELEASE);
 
 为什么第一次尝试是直接用`XCHG`指令加锁，而后面的循环则是通过`LOCK CMPXCHG`加锁呢？我的理解是`XCHG`一定会有store操作，使得其他cache line被标记无效，占用CPU总线。而`CMPXCHG`则会先load一次，先判断值是否与AX寄存器的值相同再决定要不要store，相对而言`XCHG`的失败成本更高点。
 
+### 缓存一致性
 
-还有一个问题就是在其他核的CPU也有自己的一份Cache，如果都包含lock，当前CPU如何才能得知lock的值已更新呢？这就涉及到缓存一致性的问题。一般来说缓存一致性有两种保证方法：
+由于每个核都有自己的`L1-cache`，假设CPU_0和CPU_1已预先将`&lock`对应的cache line载入自己的`L1-cache`，接下来两个核同时给`&lock`加锁。如果此时CPU_0先成功给自己`L1-cache`中的`&lock`上锁，那么CPU_1如何才能得知`&lock`已经加锁，避免两个核都成功加锁呢？毕竟CPU_0并没有去修改CPU_1中的`L1-cache`。
+
+这就涉及到缓存一致性的问题。一般来说缓存一致性有两种保证方法：
 * Directory 协议，会有一个集中式的控制器
 * Snoopy 协议，CPU的Cache状态更新后会发送广播告知其他Cache 
 
-参考：MESI协议
+具体细节参考：
+[MESI协议](/computer/cpu/intel/MESI/mesi-intel.md)
 
 ---
 

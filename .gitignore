@@ -15,3 +15,4 @@ test/
 bak_*
 tmp*
 ignore/
+.vscode/settings.json

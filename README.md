@@ -17,7 +17,7 @@
 ### cpp
 
 ### cpu
-- [ ] /computer/cpu/intel/MESI
+- [x] /computer/cpu/intel/MESI
 - [ ] /computer/cpu/PEBS
 - [ ] /computer/cpu/out-of-order_execution
 - [ ] /computer/cpu/branch_predict
@@ -25,19 +25,18 @@
 
 ### encryption
 
-### gcc
-
-### gdb
-
 ### linux
 
 ### network
-
 
 ### python
 - [x] /computer/python/pandas
 - [ ] ...
 
+### tools
+- [ ] /computer/tools/gcc
+- [ ] /computer/tools/gdb
+- [ ] /computer/tools/ffmpeg
 
 ## math
 

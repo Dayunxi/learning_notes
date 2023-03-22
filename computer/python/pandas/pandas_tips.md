@@ -169,6 +169,15 @@ DataFrame.drop_duplicates(subset=None, keep='first', inplace=False, ignore_index
 [pandas.DataFrame.drop_duplicates](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop_duplicates.html)
 
 
+## 删除连续的重复行
+
+https://stackoverflow.com/questions/19463985/pandas-drop-consecutive-duplicates
+
+
+### to_datetime()
+
+
+
 ---
 
 tags: python, pandas, stat

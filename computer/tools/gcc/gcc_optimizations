@@ -1,0 +1,9 @@
+# 如何查看开启的优化选项
+
+`-Q --help=optimizers`
+`-Q -v`
+
+
+O3优化不完全等价于O2加上文档里提到的新增选项，还有一些隐含的优化(譬如循环展开)
+
+> Not all optimizations are controlled directly by a flag. Only optimizations that have a flag are listed in this section.
